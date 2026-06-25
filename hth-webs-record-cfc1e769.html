@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hth · 用途速查卡</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f9f6f0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffcf7;
+            border-radius: 32px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+            padding: 2.4rem 2rem 3rem;
+        }
+        @media (max-width: 600px) {
+            .page { padding: 1.6rem 1rem 2rem; }
+            body { padding: 1rem 0.8rem; }
+        }
+
+        /* 主视觉头 */
+        .hero {
+            text-align: center;
+            padding: 2rem 0 1.2rem;
+            border-bottom: 1px solid #eae3d7;
+            margin-bottom: 2.2rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1f1e1b;
+        }
+        .hero h1 span {
+            background: #eddfd0;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 480;
+        }
+        .hero .sub {
+            margin-top: 0.6rem;
+            font-size: 1.05rem;
+            color: #6a6259;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 信息卡片区域 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem 1.8rem;
+            flex: 1 1 240px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #ede8e0;
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            border-color: #cfc4b4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #2d2822;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #4b463f;
+            margin-bottom: 0.3rem;
+        }
+        .card .tag {
+            display: inline-block;
+            background: #f3ede6;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            color: #5c5349;
+            margin-top: 0.4rem;
+        }
+
+        /* 引用块与提示 */
+        .insight-box {
+            background: #f5efe7;
+            border-left: 4px solid #b5a48d;
+            padding: 1.3rem 1.6rem;
+            border-radius: 16px;
+            margin: 2rem 0 1.8rem;
+            font-size: 0.98rem;
+            color: #3f3a34;
+        }
+        .insight-box strong {
+            font-weight: 500;
+            color: #2f2820;
+        }
+
+        /* 适合人群段落 */
+        .audience-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.6rem;
+            margin: 1.2rem 0 2rem;
+            background: #fcf9f5;
+            padding: 1rem 1.4rem;
+            border-radius: 40px;
+        }
+        .audience-item {
+            font-size: 0.95rem;
+            background: #ece4da;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            color: #2d2720;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0 1.2rem;
+            border: 1px solid #e3dbd0;
+        }
+        .link-paragraph p {
+            font-size: 1rem;
+            color: #3a3530;
+        }
+        .link-paragraph a {
+            color: #6f5e4b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dashed #c9bcab;
+            padding-bottom: 1px;
+            transition: border 0.15s;
+        }
+        .link-paragraph a:hover {
+            border-bottom: 1.5px solid #7b6853;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin-top: 2.6rem;
+            border-top: 1px solid #e5ddd2;
+            padding-top: 1.6rem;
+        }
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            padding: 0.6rem 0.8rem;
+            border-radius: 30px;
+            background: #f8f3ec;
+            cursor: pointer;
+        }
+        .faq-mini details[open] {
+            background: #f3ece2;
+        }
+        .faq-mini summary {
+            font-weight: 470;
+            font-size: 0.95rem;
+            color: #2f2923;
+            padding: 0.1rem 0;
+        }
+        .faq-mini p {
+            font-size: 0.9rem;
+            color: #4e4840;
+            margin-top: 0.4rem;
+            padding-left: 0.3rem;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #9e948a;
+            text-align: center;
+            margin-top: 2.4rem;
+            border-top: 1px solid #ece3d8;
+            padding-top: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1><span>hth</span> 用途速查</h1>
+        <div class="sub">信息卡片式 · 快速识别网站能为你做什么</div>
+    </div>
+
+    <!-- 用途卡片：三张主要卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>📦 产品速览</h3>
+            <p>聚合工具与内容索引，帮助你在不同场景下找到对应功能入口。卡片式结构让信息层级一目了然。</p>
+            <span class="tag">功能定位</span>
+        </div>
+        <div class="card">
+            <h3>🧩 模块拼接</h3>
+            <p>非单一页面，而是多个独立板块组合而成。每个模块解决一个具体问题，减少冗余操作步骤。</p>
+            <span class="tag">结构特点</span>
+        </div>
+        <div class="card">
+            <h3>📂 标签导航</h3>
+            <p>通过标签与分区引导用户快速定位目标内容，无需反复滚动或跳转，提高浏览效率。</p>
+            <span class="tag">交互方式</span>
+        </div>
+    </div>
+
+    <!-- 引用提示块（知识型承接） -->
+    <div class="insight-box">
+        <strong>▎先判断再使用</strong><br>
+        任何网站的价值都取决于使用者能否快速理解其组织方式。hth 采用卡片与分区混合布局，将信息节点前置，降低了认知负荷。如果你习惯先浏览概览再深入细节，这种结构会比较顺手。
+    </div>
+
+    <!-- 适合人群（标签式） -->
+    <div class="audience-wrap">
+        <span class="audience-item">日常信息浏览者</span>
+        <span class="audience-item">多任务切换用户</span>
+        <span class="audience-item">内容整理爱好者</span>
+        <span class="audience-item">轻度工具使用者</span>
+    </div>
+
+    <!-- 自然链接段落（嵌入 hth） -->
+    <div class="link-paragraph">
+        <p>
+            如果你正在寻找一个结构清晰、分类明确的信息入口，<a href="https://hth-webs-huatihui.com">hth</a> 的页面组织方式或许值得花几分钟了解。它不强调复杂的功能堆叠，而是把常见需求拆解为独立卡片，每个卡片对应一类用途。这种设计逻辑对初次接触的用户比较友好——你不需要阅读大段说明，扫一眼卡片标题就能判断是否与自己的需求匹配。
+        </p>
+    </div>
+
+    <!-- 第二个自然段落（变化句式，避免重复） -->
+    <div class="link-paragraph" style="background: #fcf8f2; margin-top: 0.2rem;">
+        <p>
+            换个角度看，网站的信息架构往往决定了用户能否留下来。在 <a href="https://hth-webs-huatihui.com">hth</a> 中，卡片之间的间距和视觉权重经过调整，重要模块的识别度更高。如果你平时需要快速从多个板块中定位所需内容，这种设计能减少一些无效点击。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要（轻量问答） -->
+    <div class="faq-mini">
+        <details>
+            <summary>hth 适合第一次访问的人吗？</summary>
+            <p>适合。首页以卡片为主，每个卡片配有简短说明，不需要提前了解背景即可上手。</p>
+        </details>
+        <details>
+            <summary>卡片里的内容会频繁更新吗？</summary>
+            <p>更新节奏取决于模块性质，部分卡片内容相对稳定，部分会随功能调整而替换。</p>
+        </details>
+        <details>
+            <summary>移动端浏览体验如何？</summary>
+            <p>卡片布局在窄屏下会自动折行，依然保持可读性，没有隐藏式菜单的困扰。</p>
+        </details>
+    </div>
+
+    <div class="footer-note">
+        —— 信息卡片式介绍页 · 基于用途识别角度 ——
+    </div>
+
+</div>
+</body>
+</html>
